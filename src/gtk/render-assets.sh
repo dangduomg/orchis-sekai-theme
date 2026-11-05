@@ -8,7 +8,7 @@ INDEX="assets.txt"
 
 ./make-assets.sh
 
-for theme in '-Miku' '-Rin'; do
+for theme in '-Miku' '-Rin' '-Len' '-Luka'; do
   ASSETS_DIR="assets${theme}"
   SRC_FILE="assets${theme}.svg"
 
@@ -54,7 +54,7 @@ for theme in '-Miku' '-Rin'; do
   done
 done
 
-for theme in '-Miku' '-Rin'; do
+for theme in '-Miku' '-Rin' '-Len' '-Luka'; do
   if [[ "${theme}" == '' && "" == '' ]]; then
     echo "keep assets.svg file..."
   else

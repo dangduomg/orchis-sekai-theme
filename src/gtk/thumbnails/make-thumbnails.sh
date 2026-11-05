@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-for theme in '-Miku' '-Rin'; do
+for theme in '-Miku' '-Rin' '-Len' '-Luka'; do
   case "$theme" in
     -Miku)
       theme_color_dark='#18FFFF'
@@ -9,6 +9,14 @@ for theme in '-Miku' '-Rin'; do
     -Rin)
       theme_color_dark='#FFEA00'
       theme_color_light='#FFEA00'
+      ;;
+    -Len)
+      theme_color_dark='#FFF176'
+      theme_color_light='#FFF176'
+      ;;
+    -Luka)
+      theme_color_dark='#FCE4EC'
+      theme_color_light='#FCE4EC'
       ;;
   esac
 

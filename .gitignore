@@ -5,3 +5,5 @@
 src/cinnamon/*.css
 src/gnome-shell/*/*.css
 src/gtk/*/*.css
+src/gtk/assets*
+src/gtk/thumbnails/*.png
