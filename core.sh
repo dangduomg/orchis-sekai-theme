@@ -2,7 +2,7 @@
 REPO_DIR="$(dirname "$(readlink -m "${0}")")"
 SRC_DIR="$REPO_DIR/src"
 
-source "${REPO_DIR}/gtkrc.sh"
+# source "${REPO_DIR}/gtkrc.sh"
 
 ROOT_UID=0
 DEST_DIR=
@@ -25,9 +25,9 @@ fi
 
 SASSC_OPT="-M -t expanded"
 
-THEME_NAME=Orchis
-THEME_VARIANTS=('' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-Grey')
-COLOR_VARIANTS=('' '-Light' '-Dark')
+THEME_NAME=OrchisSekai
+THEME_VARIANTS=('-Miku' '-Rin')
+COLOR_VARIANTS=('')
 SIZE_VARIANTS=('' '-Compact')
 
 ctype=
@@ -83,37 +83,37 @@ install() {
   echo "CursorTheme=Vimix${else_icon_dark:-}" >>                                             "$THEME_DIR/index.theme"
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "$THEME_DIR/index.theme"
 
-  mkdir -p                                                                                   "$THEME_DIR/gnome-shell"
-  cp -r "$SRC_DIR/gnome-shell/pad-osd.css"                                                   "$THEME_DIR/gnome-shell"
-  sassc $SASSC_OPT "$SRC_DIR/gnome-shell/shell-$GS_VERSION/gnome-shell${ELSE_DARK:-}$size.scss" "$THEME_DIR/gnome-shell/gnome-shell.css"
+  # mkdir -p                                                                                   "$THEME_DIR/gnome-shell"
+  # cp -r "$SRC_DIR/gnome-shell/pad-osd.css"                                                   "$THEME_DIR/gnome-shell"
+  # sassc $SASSC_OPT "$SRC_DIR/gnome-shell/shell-$GS_VERSION/gnome-shell${ELSE_DARK:-}$size.scss" "$THEME_DIR/gnome-shell/gnome-shell.css"
 
-  cp -r "$SRC_DIR/gnome-shell/common-assets"                                                 "$THEME_DIR/gnome-shell/assets"
-  cp -r "$SRC_DIR/gnome-shell/assets${ELSE_DARK:-}/"*.svg                                    "$THEME_DIR/gnome-shell/assets"
+  # cp -r "$SRC_DIR/gnome-shell/common-assets"                                                 "$THEME_DIR/gnome-shell/assets"
+  # cp -r "$SRC_DIR/gnome-shell/assets${ELSE_DARK:-}/"*.svg                                    "$THEME_DIR/gnome-shell/assets"
 
-  if [[ "$primary" == 'true' ]]; then
-    cp -r "$SRC_DIR/gnome-shell/theme$theme$ctype/checkbox${ELSE_DARK:-}.svg"                "$THEME_DIR/gnome-shell/assets/checkbox.svg"
-  fi
+  # if [[ "$primary" == 'true' ]]; then
+  #   cp -r "$SRC_DIR/gnome-shell/theme$theme$ctype/checkbox${ELSE_DARK:-}.svg"                "$THEME_DIR/gnome-shell/assets/checkbox.svg"
+  # fi
 
-  cp -r "$SRC_DIR/gnome-shell/theme$theme$ctype/more-results${ELSE_DARK:-}.svg"              "$THEME_DIR/gnome-shell/assets/more-results.svg"
-  cp -r "$SRC_DIR/gnome-shell/theme$theme$ctype/toggle-on${ELSE_DARK:-}.svg"                 "$THEME_DIR/gnome-shell/assets/toggle-on.svg"
+  # cp -r "$SRC_DIR/gnome-shell/theme$theme$ctype/more-results${ELSE_DARK:-}.svg"              "$THEME_DIR/gnome-shell/assets/more-results.svg"
+  # cp -r "$SRC_DIR/gnome-shell/theme$theme$ctype/toggle-on${ELSE_DARK:-}.svg"                 "$THEME_DIR/gnome-shell/assets/toggle-on.svg"
 
-  cp -r "$SRC_DIR/gnome-shell/activities/activities${icon}.svg"                              "$THEME_DIR/gnome-shell/assets/activities.svg"
+  # cp -r "$SRC_DIR/gnome-shell/activities/activities${icon}.svg"                              "$THEME_DIR/gnome-shell/assets/activities.svg"
 
-  cd "$THEME_DIR/gnome-shell"
-  ln -s assets/no-events.svg no-events.svg
-  ln -s assets/process-working.svg process-working.svg
-  ln -s assets/no-notifications.svg no-notifications.svg
+  # cd "$THEME_DIR/gnome-shell"
+  # ln -s assets/no-events.svg no-events.svg
+  # ln -s assets/process-working.svg process-working.svg
+  # ln -s assets/no-notifications.svg no-notifications.svg
 
-  mkdir -p                                                                                   "$THEME_DIR/gtk-2.0"
-  cp -r "$SRC_DIR/gtk-2.0/common/"{apps.rc,hacks.rc,main.rc}                                 "$THEME_DIR/gtk-2.0"
-  cp -r "$SRC_DIR/gtk-2.0/assets-folder/assets-common${ELSE_DARK:-}$ctype"                   "$THEME_DIR/gtk-2.0/assets"
-  cp -r "$SRC_DIR/gtk-2.0/assets-folder/assets$theme${ELSE_DARK:-}$ctype/"*"png"             "$THEME_DIR/gtk-2.0/assets"
+  # mkdir -p                                                                                   "$THEME_DIR/gtk-2.0"
+  # cp -r "$SRC_DIR/gtk-2.0/common/"{apps.rc,hacks.rc,main.rc}                                 "$THEME_DIR/gtk-2.0"
+  # cp -r "$SRC_DIR/gtk-2.0/assets-folder/assets-common${ELSE_DARK:-}$ctype"                   "$THEME_DIR/gtk-2.0/assets"
+  # cp -r "$SRC_DIR/gtk-2.0/assets-folder/assets$theme${ELSE_DARK:-}$ctype/"*"png"             "$THEME_DIR/gtk-2.0/assets"
 
-  make_gtkrc
+  # make_gtkrc
 
-  if [[ "$primary" != "true" ]]; then
-    cp -rf "$SRC_DIR/gtk-2.0/assets-folder/assets-default-radio${ELSE_DARK:-}$ctype"/*.png   "$THEME_DIR/gtk-2.0/assets"
-  fi
+  # if [[ "$primary" != "true" ]]; then
+  #   cp -rf "$SRC_DIR/gtk-2.0/assets-folder/assets-default-radio${ELSE_DARK:-}$ctype"/*.png   "$THEME_DIR/gtk-2.0/assets"
+  # fi
 
   mkdir -p                                                                                   "$THEME_DIR/gtk-3.0"
   cp -r "$SRC_DIR/gtk/assets$theme$ctype"                                                    "$THEME_DIR/gtk-3.0/assets"
@@ -159,40 +159,40 @@ install() {
     xfwm_button
   fi
 
-  mkdir -p                                                                                   "$THEME_DIR/cinnamon"
-  cp -r "$SRC_DIR/cinnamon/common-assets"                                                    "$THEME_DIR/cinnamon/assets"
-  cp -r "$SRC_DIR/cinnamon/assets${ELSE_DARK:-}/"*.svg                                       "$THEME_DIR/cinnamon/assets"
-  cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/add-workspace-active${ELSE_DARK:-}.svg"         "$THEME_DIR/cinnamon/assets/add-workspace-active.svg"
-  cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/corner-ripple${ELSE_DARK:-}.svg"                "$THEME_DIR/cinnamon/assets/corner-ripple.svg"
-  cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/toggle-on${ELSE_DARK:-}.svg"                    "$THEME_DIR/cinnamon/assets/toggle-on.svg"
+  # mkdir -p                                                                                   "$THEME_DIR/cinnamon"
+  # cp -r "$SRC_DIR/cinnamon/common-assets"                                                    "$THEME_DIR/cinnamon/assets"
+  # cp -r "$SRC_DIR/cinnamon/assets${ELSE_DARK:-}/"*.svg                                       "$THEME_DIR/cinnamon/assets"
+  # cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/add-workspace-active${ELSE_DARK:-}.svg"         "$THEME_DIR/cinnamon/assets/add-workspace-active.svg"
+  # cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/corner-ripple${ELSE_DARK:-}.svg"                "$THEME_DIR/cinnamon/assets/corner-ripple.svg"
+  # cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/toggle-on${ELSE_DARK:-}.svg"                    "$THEME_DIR/cinnamon/assets/toggle-on.svg"
 
-  if [[ "$primary" == 'true' ]]; then
-    cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/checkbox${ELSE_DARK:-}.svg"                   "$THEME_DIR/cinnamon/assets/checkbox.svg"
-    cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/radiobutton${ELSE_DARK:-}.svg"                "$THEME_DIR/cinnamon/assets/radiobutton.svg"
-  fi
+  # if [[ "$primary" == 'true' ]]; then
+  #   cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/checkbox${ELSE_DARK:-}.svg"                   "$THEME_DIR/cinnamon/assets/checkbox.svg"
+  #   cp -r "$SRC_DIR/cinnamon/theme$theme$ctype/radiobutton${ELSE_DARK:-}.svg"                "$THEME_DIR/cinnamon/assets/radiobutton.svg"
+  # fi
 
-  sassc $SASSC_OPT "$SRC_DIR/cinnamon/cinnamon${ELSE_DARK:-}$size.scss"                      "$THEME_DIR/cinnamon/cinnamon.css"
+  # sassc $SASSC_OPT "$SRC_DIR/cinnamon/cinnamon${ELSE_DARK:-}$size.scss"                      "$THEME_DIR/cinnamon/cinnamon.css"
 
-  cp -r "$SRC_DIR/cinnamon/thumbnails/thumbnail$theme${ELSE_DARK:-}$ctype.png"               "$THEME_DIR/cinnamon/thumbnail.png"
+  # cp -r "$SRC_DIR/cinnamon/thumbnails/thumbnail$theme${ELSE_DARK:-}$ctype.png"               "$THEME_DIR/cinnamon/thumbnail.png"
 
-  mkdir -p                                                                                   "$THEME_DIR/metacity-1"
+  # mkdir -p                                                                                   "$THEME_DIR/metacity-1"
 
-  if [[ "$macstyle" == "true" ]] ; then
-    cp -r "$SRC_DIR/metacity-1/metacity-theme-3-mac.xml"                                     "$THEME_DIR/metacity-1/metacity-theme-3.xml"
-    cp -r "$SRC_DIR/metacity-1/assets-mac"                                                   "$THEME_DIR/metacity-1/assets"
-    cp -r "$SRC_DIR/metacity-1/thumbnail${ELSE_DARK:-}-mac.png"                              "$THEME_DIR/metacity-1/thumbnail.png"
-  else
-    cp -r "$SRC_DIR/metacity-1/metacity-theme-3.xml"                                         "$THEME_DIR/metacity-1"
-    cp -r "$SRC_DIR/metacity-1/assets"                                                       "$THEME_DIR/metacity-1"
-    cp -r "$SRC_DIR/metacity-1/thumbnail${ELSE_DARK:-}.png"                                  "$THEME_DIR/metacity-1/thumbnail.png"
-  fi
+  # if [[ "$macstyle" == "true" ]] ; then
+  #   cp -r "$SRC_DIR/metacity-1/metacity-theme-3-mac.xml"                                     "$THEME_DIR/metacity-1/metacity-theme-3.xml"
+  #   cp -r "$SRC_DIR/metacity-1/assets-mac"                                                   "$THEME_DIR/metacity-1/assets"
+  #   cp -r "$SRC_DIR/metacity-1/thumbnail${ELSE_DARK:-}-mac.png"                              "$THEME_DIR/metacity-1/thumbnail.png"
+  # else
+  #   cp -r "$SRC_DIR/metacity-1/metacity-theme-3.xml"                                         "$THEME_DIR/metacity-1"
+  #   cp -r "$SRC_DIR/metacity-1/assets"                                                       "$THEME_DIR/metacity-1"
+  #   cp -r "$SRC_DIR/metacity-1/thumbnail${ELSE_DARK:-}.png"                                  "$THEME_DIR/metacity-1/thumbnail.png"
+  # fi
 
-  (
-    cd "$THEME_DIR/metacity-1" && ln -s metacity-theme-3.xml metacity-theme-2.xml && ln -s metacity-theme-3.xml metacity-theme-1.xml
-  )
+  # (
+  #   cd "$THEME_DIR/metacity-1" && ln -s metacity-theme-3.xml metacity-theme-2.xml && ln -s metacity-theme-3.xml metacity-theme-1.xml
+  # )
 
-  mkdir -p                                                                                   "$THEME_DIR/plank"
-  cp -r "$SRC_DIR/plank/"*                                                                   "$THEME_DIR/plank"
+  # mkdir -p                                                                                   "$THEME_DIR/plank"
+  # cp -r "$SRC_DIR/plank/"*                                                                   "$THEME_DIR/plank"
 }
 
 uninstall() {
@@ -422,29 +422,11 @@ accent_type() {
 install_theme_color() {
   if [[ "$theme" != '' ]]; then
     case "$theme" in
-      -Purple)
-        theme_color='purple'
+      -Miku)
+        theme_color="miku"
         ;;
-      -Pink)
-        theme_color='pink'
-        ;;
-      -Red)
-        theme_color='red'
-        ;;
-      -Orange)
-        theme_color='orange'
-        ;;
-      -Yellow)
-        theme_color='yellow'
-        ;;
-      -Green)
-        theme_color='green'
-        ;;
-      -Teal)
-        theme_color='teal'
-        ;;
-      -Grey)
-        theme_color='grey'
+      -Rin)
+        theme_color="rin"
         ;;
     esac
     sed -i "/\$theme:/s/default/${theme_color}/" $SRC_DIR/_sass/_tweaks-temp.scss

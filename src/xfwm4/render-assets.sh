@@ -97,7 +97,7 @@ xpm_main() {
               --export-id-only \
               --export-dpi=$DPI \
               --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-    magick "$ASSETS_DIR/$i.png" "$ASSETS_DIR/$i.xpm"
+    convert "$ASSETS_DIR/$i.png" "$ASSETS_DIR/$i.xpm"
     sed -i "s/c #2C2C2C/c #2C2C2C s active_color_2/g" "$ASSETS_DIR/$i.xpm"
     sed -i "s/c gray20/c gray20 s inactive_color_1/g" "$ASSETS_DIR/$i.xpm"
     rm -rf $ASSETS_DIR/$i.png

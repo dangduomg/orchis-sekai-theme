@@ -11,8 +11,8 @@ OPTIONS:
   -d, --dest DIR          Specify destination directory (Default: $DEST_DIR)
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
 
-  -t, --theme VARIANT     Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|teal|grey|all] (Default: blue)
-  -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)s)
+  -t, --theme VARIANT     Specify theme color variant(s) [miku|all] (Default: miku)
+  -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
   -s, --size VARIANT      Specify size variant [standard|compact] (Default: All variants)
 
   -i, --icon VARIANT      Specify icon variant(s) for shell panel activities button
@@ -202,40 +202,8 @@ while [[ "$#" -gt 0 ]]; do
       shift
       for variant in "$@"; do
         case "$variant" in
-          default)
+          miku)
             themes+=("${THEME_VARIANTS[0]}")
-            shift
-            ;;
-          purple)
-            themes+=("${THEME_VARIANTS[1]}")
-            shift
-            ;;
-          pink)
-            themes+=("${THEME_VARIANTS[2]}")
-            shift
-            ;;
-          red)
-            themes+=("${THEME_VARIANTS[3]}")
-            shift
-            ;;
-          orange)
-            themes+=("${THEME_VARIANTS[4]}")
-            shift
-            ;;
-          yellow)
-            themes+=("${THEME_VARIANTS[5]}")
-            shift
-            ;;
-          green)
-            themes+=("${THEME_VARIANTS[6]}")
-            shift
-            ;;
-          teal)
-            themes+=("${THEME_VARIANTS[7]}")
-            shift
-            ;;
-          grey)
-            themes+=("${THEME_VARIANTS[8]}")
             shift
             ;;
           all)
