@@ -5,7 +5,7 @@ OPTIPNG="/usr/bin/optipng"
 
 ./make-thumbnails.sh
 
-for theme in '-Miku' '-Rin' '-Len' '-Luka'; do
+for theme in '-Miku' '-Rin' '-Len' '-Luka' '-MEIKO' '-KAITO'; do
   SRC_FILE="thumbnail${theme}.svg"
   for color in '' '-Dark'; do
     echo
@@ -18,7 +18,7 @@ for theme in '-Miku' '-Rin' '-Len' '-Luka'; do
   done
 done
 
-for theme in '-Miku' '-Rin' '-Len' '-Luka'; do
+for theme in '-Miku' '-Rin' '-Len' '-Luka' '-MEIKO' '-KAITO'; do
   if [[ ${theme} == '' ]]; then
     echo "keep thumbnail.svg"
   else

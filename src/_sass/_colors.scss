@@ -62,6 +62,8 @@
   @if ($color == 'rin') { @return $yellow-a400; }
   @if ($color == 'len') { @return $yellow-300; }
   @if ($color == 'luka') { @return $pink-50; }
+  @if ($color == 'meiko') { @return $red-700; }
+  @if ($color == 'kaito') { @return $blue-a400; }
 }
 
 @function background($type) {

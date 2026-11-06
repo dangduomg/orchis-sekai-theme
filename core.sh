@@ -26,7 +26,7 @@ fi
 SASSC_OPT="-M -t expanded"
 
 THEME_NAME=OrchisSekai
-THEME_VARIANTS=('-Miku' '-Rin' '-Len' '-Luka')
+THEME_VARIANTS=('-Miku' '-Rin' '-Len' '-Luka' '-MEIKO' '-KAITO')
 COLOR_VARIANTS=('')
 SIZE_VARIANTS=('' '-Compact')
 
@@ -433,6 +433,12 @@ install_theme_color() {
         ;;
       -Luka)
         theme_color="luka"
+        ;;
+      -MEIKO)
+        theme_color="meiko"
+        ;;
+      -KAITO)
+        theme_color="kaito"
         ;;
     esac
     sed -i "/\$theme:/s/default/${theme_color}/" $SRC_DIR/_sass/_tweaks-temp.scss
